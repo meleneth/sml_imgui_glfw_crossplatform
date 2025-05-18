@@ -38,6 +38,9 @@ int main() {
     ImGui_ImplOpenGL3_Shutdown();
     ImGui_ImplGlfw_Shutdown();
     ImGui::DestroyContext();
+    if (window)
+      glfwDestroyWindow(window);
+
     glfwTerminate();
     return 0;
 }
