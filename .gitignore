@@ -46,3 +46,4 @@ CMakeUserPresets.json
 
 build-win
 build
+valgrind.log

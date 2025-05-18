@@ -23,4 +23,13 @@ These instructions should build the exe in a directory called win-build
 cmake -B build -DCMAKE_BUILD_TYPE=Debug
 cmake --build build
 
-valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --log-file=valgrind.log --suppressions=valgrind-clean.supp ./build/brine
+This is the version that was used to generate the initial valgrind suppressions. They should cover the minimal RAII version, which means they should catch all the library leaks that we as user level devs can't do anything about.
+
+this was done via
+
+    valgrind --leak-check=full --show-reachable=yes --error-limit=no --gen-suppressions=all --log-file=valgrind.log ./build/brine
+    cat valgrind.log | ./gen_valgrind_supressions > valgrind-clean.supp
+
+which lets us run
+
+    valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --suppressions=valgrind-clean.supp ./build/brine
