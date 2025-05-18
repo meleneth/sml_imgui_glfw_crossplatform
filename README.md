@@ -9,10 +9,15 @@ There are multiple branches!
 The main branch will have the up-to-date full list, other branches will be at various states.
 
 1. initial
+
    this is the initial bare-bones cross-compileable "where it all started" simplest possible example.
+
 1. 01_raii_appears
+
    this is the first version with multiple source files, and renames the binary to 'brine'. This is also the version where the valgrind suppresion file comes in, because the call stack for library initialization changes with the extra files, which changes the stack traces for the library 'leaks' that valgrind sees.
+
 1. 02_machine_state_popup
+
    Added a quad FSM setup, and maybe a popup? added a clang-format option to cmake
 
 # Instructions
