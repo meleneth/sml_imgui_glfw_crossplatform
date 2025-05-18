@@ -10,6 +10,7 @@ The main branch will have the up-to-date full list, other branches will be at va
 
 initial - this is the initial bare-bones cross-compileable "where it all started" simplest possible example.
 01_raii_appears - this is the first version with multiple source files, and renames the binary to 'brine'. This is also the version where the valgrind suppresion file comes in, because the call stack for library initialization changes with the extra files, which changes the stack traces for the library 'leaks' that valgrind sees.
+02_machine_state_popup - Added a quad FSM setup, and maybe a popup? added a clang-format option to cmake
 
 # Instructions
 
@@ -18,6 +19,10 @@ These instructions should build the exe in a directory called win-build
 
     docker build -t winbuilder .
     ./build-windows.sh
+
+# Code Formatting
+
+cmake --build . --target clang-format
 
 # Debug build, for linux
 
