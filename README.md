@@ -9,6 +9,7 @@ There are multiple branches!
 The main branch will have the up-to-date full list, other branches will be at various states.
 
 initial - this is the initial bare-bones cross-compileable "where it all started" simplest possible example.
+01_raii_appears - this is the first version with multiple source files, and renames the binary to 'brine'. This is also the version where the valgrind suppresion file comes in, because the call stack for library initialization changes with the extra files, which changes the stack traces for the library 'leaks' that valgrind sees.
 
 # Instructions
 
