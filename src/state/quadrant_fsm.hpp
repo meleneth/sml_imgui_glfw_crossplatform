@@ -6,15 +6,15 @@
 
 class QuadrantFsm {
 public:
-    QuadrantFsm();
+  QuadrantFsm();
 
-    void tick();
-    void toggle();
+  void tick();
+  void toggle();
 
-    std::string state_name() const;
-    int counter() const;
+  std::string state_name() const;
+  int counter() const;
 
 private:
-    FsmContext context;
-    boost::sml::sm<QuadrantFsmDefinition> sm;
+  FsmContext context;
+  boost::sml::sm<QuadrantFsmDefinition> sm;
 };

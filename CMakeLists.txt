@@ -33,6 +33,7 @@ add_executable(brine
 	src/brine/context.cpp
 	src/brine/run_loop.hpp
 	src/brine/brine_types.hpp
+	src/brine/brine_gl_includes.hpp
 	src/state/quadrant_fsm_definition.hpp
 	src/state/quadrant_fsm.hpp
 	src/state/quadrant_fsm.cpp

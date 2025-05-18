@@ -5,15 +5,14 @@ namespace brine {
 
 class Context {
 public:
-    Context();
-    ~Context();
+  Context();
+  ~Context();
 
-    GLFWwindow* get_window() const;
-    void run_main_loop(RunLoop& loop);
+  GLFWwindow *get_window() const;
+  void run_main_loop(RunLoop &loop);
 
 private:
-    GLFWwindow* window = nullptr;
+  GLFWwindow *window = nullptr;
 };
 
 } // namespace brine
-
