@@ -1,43 +1,19 @@
-#include <glad/glad.h>
-#include <GLFW/glfw3.h>
-#include <imgui.h>
-#include <backends/imgui_impl_glfw.h>
-#include <backends/imgui_impl_opengl3.h>
+#include "brine/brine_types.hpp"
+#include "brine/context.hpp"
+#include "brine/run_loop.hpp"
+
+class MyLoop : public brine::RunLoop {
+public:
+    void run() override {
+        ImGui::Begin("RAII!");
+        ImGui::Text("run() from MyLoop");
+        ImGui::End();
+    }
+};
 
 int main() {
-    if (!glfwInit()) return -1;
-
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-    GLFWwindow* window = glfwCreateWindow(800, 600, "Hello", nullptr, nullptr);
-    glfwMakeContextCurrent(window);
-
-    if (!gladLoadGL()) return -1;
-
-    IMGUI_CHECKVERSION();
-    ImGui::CreateContext();
-    ImGui_ImplGlfw_InitForOpenGL(window, true);
-    ImGui_ImplOpenGL3_Init("#version 330");
-
-    while (!glfwWindowShouldClose(window)) {
-        glfwPollEvents();
-        ImGui_ImplOpenGL3_NewFrame();
-        ImGui_ImplGlfw_NewFrame();
-        ImGui::NewFrame();
-
-        ImGui::Begin("Window");
-        ImGui::Text("Hello, SML!");
-        ImGui::End();
-
-        ImGui::Render();
-        glClear(GL_COLOR_BUFFER_BIT);
-        ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
-        glfwSwapBuffers(window);
-    }
-
-    ImGui_ImplOpenGL3_Shutdown();
-    ImGui_ImplGlfw_Shutdown();
-    ImGui::DestroyContext();
-    glfwTerminate();
+    brine::Context context;
+    MyLoop loop;
+    context.run_main_loop(loop);
     return 0;
 }

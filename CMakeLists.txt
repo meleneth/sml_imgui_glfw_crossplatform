@@ -10,16 +10,20 @@ include(FetchContent)
 add_subdirectory(external)
 
 # Add source files
-add_executable(sml_imgui
+add_executable(brine
     src/main.cpp
+    src/brine/context.hpp
+    src/brine/context.cpp
+    src/brine/run_loop.hpp
+    src/brine/brine_types.hpp
 )
 
-target_link_libraries(sml_imgui PRIVATE
+target_link_libraries(brine PRIVATE
     glfw
     glad
     imgui
 )
 
-target_include_directories(sml_imgui PRIVATE
+target_include_directories(brine PRIVATE
     ${PROJECT_SOURCE_DIR}/external/stb
 )

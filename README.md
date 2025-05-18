@@ -17,3 +17,10 @@ These instructions should build the exe in a directory called win-build
 
     docker build -t winbuilder .
     ./build-windows.sh
+
+# Debug build, for linux
+
+cmake -B build -DCMAKE_BUILD_TYPE=Debug
+cmake --build build
+
+valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --log-file=valgrind.log --suppressions=valgrind-clean.supp ./build/brine
