@@ -11,7 +11,7 @@ public:
   void tick();
   void toggle();
 
-  std::string state_name() const;
+  std::string label_name() const;
   int counter() const;
 
 private:

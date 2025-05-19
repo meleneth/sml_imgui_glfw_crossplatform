@@ -16,7 +16,7 @@ public:
 
       ImGui::PushID(i);
       ImGui::Text("FSM #%d", i + 1);
-      ImGui::Text("State: %s", machines[i].state_name().c_str());
+      ImGui::Text("State: %s", machines[i].label_name().c_str());
       ImGui::Text("Counter: %d", machines[i].counter());
       if (ImGui::Button("Toggle State")) {
         machines[i].toggle();
